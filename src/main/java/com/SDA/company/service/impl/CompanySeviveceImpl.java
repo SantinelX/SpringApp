@@ -4,6 +4,11 @@ import com.SDA.company.models.Company;
 import com.SDA.company.repository.CompanyRepository;
 import com.SDA.company.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,4 +29,18 @@ public class CompanySeviveceImpl implements CompanyService {
     public List<Company> getAllCompanies() {
         return null;
     }
+
+    @Override
+    public List<Company> createAll(List<Company> companies) {
+        return (List<Company>) companyRepository.saveAll(companies);
+    }
+
+    @Override
+    public List<Company> getSorted(Integer pageNumber, Integer pageSize, String sortBy) {
+        Pageable pageable = PageRequest.of(pageNumber,pageSize, Sort.by(sortBy));
+        Page<Company> pageResult = companyRepository.findAll(pageable);
+        return pageResult.getContent();
+    }
+
+
 }

@@ -8,4 +8,8 @@ public interface CompanyService {
     Company createCompany(Company company);
 
     List<Company> getAllCompanies();
+
+    List<Company> createAll(List<Company> companies);
+
+    List<Company> getSorted(Integer pageNumber, Integer pageSize, String sortby);
 }
