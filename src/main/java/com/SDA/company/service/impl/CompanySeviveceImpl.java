@@ -26,7 +26,7 @@ public class CompanySeviveceImpl implements CompanyService {
     }
 
     @Override
-    public List<Company> getAllCompanies() {
+    public List<Company> getAllCompanies() {  //<-needs implementation.
         return null;
     }
 

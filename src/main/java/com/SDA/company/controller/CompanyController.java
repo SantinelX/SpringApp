@@ -2,7 +2,9 @@ package com.SDA.company.controller;
 
 import com.SDA.company.component.CustomFaker;
 import com.SDA.company.models.Company;
+import com.SDA.company.models.Employee;
 import com.SDA.company.service.CompanyService;
+import com.SDA.company.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
