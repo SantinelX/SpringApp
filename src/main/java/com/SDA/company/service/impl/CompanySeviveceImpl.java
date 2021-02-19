@@ -26,8 +26,8 @@ public class CompanySeviveceImpl implements CompanyService {
     }
 
     @Override
-    public List<Company> getAllCompanies() {  //<-needs implementation.
-        return null;
+    public List<Company> getAllCompanies() {
+        return (List<Company>) companyRepository.findAll();
     }
 
     @Override
@@ -40,6 +40,12 @@ public class CompanySeviveceImpl implements CompanyService {
         Pageable pageable = PageRequest.of(pageNumber,pageSize, Sort.by(sortBy));
         Page<Company> pageResult = companyRepository.findAll(pageable);
         return pageResult.getContent();
+    }
+
+    @Override
+    public Company deleteCompany (Company company){
+       companyRepository.delete(company);
+       return null;
     }
 
 

@@ -46,6 +46,12 @@ public class CompanyController {
         return ResponseEntity.ok(companyService.getSorted(pageNumber, pageSize, sortBy));
     }
 
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteCompany(@RequestBody Company company){
+        companyService.deleteCompany(company);
+        return ResponseEntity.ok(company.getName() + " have been deleted.");
+    }
+
 
 
 

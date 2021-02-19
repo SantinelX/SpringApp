@@ -1,9 +1,7 @@
 package com.SDA.company.service.impl;
 
-import com.SDA.company.models.Company;
 import com.SDA.company.models.Employee;
 import com.SDA.company.repository.EmployeeRepository;
-import com.SDA.company.service.CompanyService;
 import com.SDA.company.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,11 +14,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee createEmployee(Employee employee){ //<-needs implementation.
+
         return employeeRepository.save(employee);
     }
 
     @Override
-    public List<Employee> createAll(List<Employee> employees){ //<-needs implementation.
+    public List<Employee> createAll(List<Employee> employees){
         return (List<Employee>) employeeRepository.saveAll(employees);
     }
 
@@ -31,8 +30,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> getAllEmploies (){ //<-needs implementation.
-        return null;
+    public List<Employee> getAllEmploies (){
+        return (List<Employee>) employeeRepository.findAll();
     }
 
     @Override
@@ -41,8 +40,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void deleteEmployee(Employee employee) { //<-needs implementation.
+    public Employee deleteEmployee(Employee employee) {
          employeeRepository.delete(employee);
+         return null;
     }
 
 }

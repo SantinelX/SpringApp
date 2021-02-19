@@ -1,7 +1,6 @@
 package com.SDA.company.service;
 
 import com.SDA.company.models.Company;
-
 import java.util.List;
 
 public interface CompanyService {
@@ -13,4 +12,6 @@ public interface CompanyService {
     List<Company> createAll(List<Company> companies);
 
     List<Company> getSorted(Integer pageNumber, Integer pageSize, String sortby);
+
+    Company deleteCompany(Company company);
 }

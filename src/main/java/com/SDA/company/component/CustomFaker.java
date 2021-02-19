@@ -32,7 +32,7 @@ public class CustomFaker {
         for(int i = 0; i<300; i++){
             Employee employee = new Employee();
 
-            employee.setFirstname(faker.name().firstName());
+            employee.setFirstName(faker.name().firstName());
             employee.setLastName((faker.name().lastName()));
             employee.setAddress(faker.address().fullAddress());
             employee.setEmail(faker.bothify("?????##@gmail.com"));

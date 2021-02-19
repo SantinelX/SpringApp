@@ -1,8 +1,6 @@
 package com.SDA.company.service;
 
-import com.SDA.company.models.Company;
 import com.SDA.company.models.Employee;
-
 import java.util.List;
 
 public interface EmployeeService {
@@ -17,7 +15,7 @@ public interface EmployeeService {
 
     Employee updateEmploye(Employee employee);
 
-    void deleteEmployee(Employee employee);
+    Employee deleteEmployee(Employee employee);
 
 
 }
