@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -18,6 +20,12 @@ public class EmployeeController {
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
         return ResponseEntity.ok(employeeService.createEmployee(employee));
     }
+
+    @GetMapping("/getAll")
+    public ResponseEntity<List<Employee>> getAllEmployes(){ // <- to be reevaluated.
+        return ResponseEntity.ok(employeeService.getAllEmploies());
+    }
+
 
     @GetMapping("/populate")
     public ResponseEntity<String> populateDB() {

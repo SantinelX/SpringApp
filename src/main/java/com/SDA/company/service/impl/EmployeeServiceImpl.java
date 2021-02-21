@@ -13,8 +13,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
     @Override
-    public Employee createEmployee(Employee employee){ //<-needs implementation.
-
+    public Employee createEmployee(Employee employee){
         return employeeRepository.save(employee);
     }
 
@@ -25,7 +24,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee getEmployee(Employee employee){ //<-needs implementation.
-
         return null;
     }
 
