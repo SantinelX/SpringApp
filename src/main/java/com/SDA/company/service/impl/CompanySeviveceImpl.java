@@ -1,5 +1,6 @@
 package com.SDA.company.service.impl;
 
+import com.SDA.company.exception.CompanyNotFoundException;
 import com.SDA.company.models.Company;
 import com.SDA.company.repository.CompanyRepository;
 import com.SDA.company.service.CompanyService;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CompanySeviveceImpl implements CompanyService {
@@ -21,7 +23,9 @@ public class CompanySeviveceImpl implements CompanyService {
     private CompanyRepository companyRepository; // field injection -> NOT RECOMMENDED !!!
 
     @Override
-    public Company createCompany(Company company) {
+    public Company createCompany(Company company, String userName) {
+        company.setCreatedBy(userName);
+        company.getCreatedAt();
         return companyRepository.save(company);
     }
 
@@ -48,5 +52,9 @@ public class CompanySeviveceImpl implements CompanyService {
        return null;
     }
 
-
+    @Override
+    public Company findCompanyById(Integer id) {
+        Optional<Company> company = companyRepository.findById(id);
+        return company.orElseThrow(()->new CompanyNotFoundException("Company with Id: " + id + " dose not exists."));
+    }
 }

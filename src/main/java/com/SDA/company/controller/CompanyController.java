@@ -2,18 +2,18 @@ package com.SDA.company.controller;
 
 import com.SDA.company.component.CustomFaker;
 import com.SDA.company.models.Company;
-import com.SDA.company.models.Employee;
 import com.SDA.company.service.CompanyService;
-import com.SDA.company.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
+@ControllerAdvice
 @RequestMapping("/company")
-public class CompanyController {
+public class CompanyController{
 
     @Autowired
     private CompanyService companyService;
@@ -22,8 +22,8 @@ public class CompanyController {
 //    private CustomFaker customFaker;
 
     @PostMapping("/create")
-    public ResponseEntity<Company> createCompany(@RequestBody Company company){
-        return ResponseEntity.ok(companyService.createCompany(company));
+    public ResponseEntity<Company> createCompany(@RequestBody Company company, Principal principal){
+        return ResponseEntity.ok(companyService.createCompany(company,principal.getName()));
     }
 
     @GetMapping("/getAll")
@@ -46,11 +46,18 @@ public class CompanyController {
         return ResponseEntity.ok(companyService.getSorted(pageNumber, pageSize, sortBy));
     }
 
+    @GetMapping("/getById")
+    public ResponseEntity<Company> findById (@RequestParam Integer id){
+        return ResponseEntity.ok(companyService.findCompanyById(id));
+    }
+
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteCompany(@RequestBody Company company){
         companyService.deleteCompany(company);
         return ResponseEntity.ok(company.getName() + " have been deleted.");
     }
+
+
 
 
 

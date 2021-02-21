@@ -1,6 +1,10 @@
 package com.SDA.company.models;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedBy;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="company")
@@ -23,6 +27,12 @@ public class Company {
 
     @Column
     private Long registrationNumber;
+
+    @CreatedBy
+    private String createdBy;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 
     public Integer getId() {
         return id;
@@ -70,5 +80,21 @@ public class Company {
 
     public void setRegistrationNumber(Long registrationNumber) {
         this.registrationNumber = registrationNumber;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }
