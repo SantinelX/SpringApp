@@ -15,13 +15,18 @@ import java.util.List;
 @RequestMapping("/company")
 public class CompanyController{
 
+    private final CompanyService companyService;
+
     @Autowired
-    private CompanyService companyService;
+    public CompanyController(CompanyService companyService) {
+        this.companyService = companyService;
+    }
 
 //    @Autowired
 //    private CustomFaker customFaker;
 
     @PostMapping("/create")
+//    @RequestMapping(value = "/create", method = RequestMethod.POST) // <-metoda Clasica (veche)
     public ResponseEntity<Company> createCompany(@RequestBody Company company, Principal principal){
         return ResponseEntity.ok(companyService.createCompany(company,principal.getName()));
     }

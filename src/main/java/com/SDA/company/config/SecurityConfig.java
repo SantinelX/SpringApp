@@ -25,10 +25,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
-                .antMatchers("/company/create").hasRole("ADMIN")
-                .antMatchers("/company/getAll").hasRole("USER")
-                .anyRequest().authenticated()
-//                .anyRequest().permitAll() // <- pentru a dezactiva temporar "auenticater" -ul se lasa aceasta linie activa;
+//                .antMatchers("/company/create").hasRole("ADMIN")
+//                .antMatchers("/company/getAll").hasRole("USER")
+//                .anyRequest().authenticated()
+                .anyRequest().permitAll() // <- pentru a dezactiva temporar "auenticater" -ul se lasa aceasta linie activa;
                 .and()
                 .httpBasic();
 

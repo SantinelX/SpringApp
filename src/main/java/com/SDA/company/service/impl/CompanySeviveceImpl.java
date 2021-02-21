@@ -4,8 +4,8 @@ import com.SDA.company.exception.CompanyNotFoundException;
 import com.SDA.company.models.Company;
 import com.SDA.company.repository.CompanyRepository;
 import com.SDA.company.service.CompanyService;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -19,8 +19,12 @@ import java.util.Optional;
 public class CompanySeviveceImpl implements CompanyService {
 
 
+    private final CompanyRepository companyRepository; // field injection -> NOT RECOMMENDED !!!
+
     @Autowired
-    private CompanyRepository companyRepository; // field injection -> NOT RECOMMENDED !!!
+    public CompanySeviveceImpl(CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository;
+    }
 
     @Override
     public Company createCompany(Company company, String userName) {

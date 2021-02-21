@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Timeleaf Project</title>
+</head>
+<body>
+    <form th:action="@{/login}" th:object="${loginform}" method="post">
+        <label for="userName">Username</label>
+        <input type="text" id="userName" name="userName" autofocus="autofocus"><br/>
+        <label for="password">Password</label>
+        <input type="text" id="password" name="password" autofocus="autofocus"><br/>
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>

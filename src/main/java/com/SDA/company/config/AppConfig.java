@@ -14,9 +14,6 @@ public class AppConfig {
         return new CustomFaker();
     }
 
-    @Bean
-    public EmployeeService employeeService(){
-        return new EmployeeServiceImpl();
-    }
+
 
 }
