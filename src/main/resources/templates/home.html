@@ -6,5 +6,12 @@
 </head>
 <body>
     <h1>Felicitari pentru logare</h1>
+    <H2>Home Page</H2>
+    <label> Lista de company </label>
+    <form action = "#" th:action = "@{'/getAll'}" th:method = "get">
+        <input type="hidden" name="_method" value="get"/>
+        <input type="submit" value="Afiseaza Companii"/>
+    </form>
+
 </body>
 </html>
